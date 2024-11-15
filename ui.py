@@ -83,7 +83,7 @@ def create_ui():
                 gr.update(interactive=True)    # reason
             )
         
-        confirmation_text = f"Sir please ensure before submit project number: {project_number}, project name: {project_name}, amount: {amount} riyals,reason for request: {reason} are ok"
+        confirmation_text = f"Sir please ensure before submit project number: {project_number}, project name: {project_name}, amount: {amount} riyals, project reason: {reason} are ok"
         audio_path, error = play_text(confirmation_text)
         
         if error:
@@ -150,7 +150,10 @@ def create_ui():
             gr.update(interactive=True),     # project_number
             gr.update(interactive=True),     # project_name
             gr.update(interactive=True),     # amount
-            gr.update(interactive=True)      # reason
+            gr.update(interactive=True),     # reason
+            gr.update(value=""),            # text_input
+            gr.update(value=None),          # audio_input
+            gr.update(value="")             # process_output
         )
 
     # Create UI layout
@@ -252,7 +255,10 @@ def create_ui():
                 project_number,
                 project_name,
                 amount,
-                reason
+                reason,
+                text_input,
+                audio_input,
+                process_output
             ]
         )
         
